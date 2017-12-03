@@ -241,56 +241,56 @@
     </script>
 
     <div class="form-group">
-        <label class="col-sm-12">Checklist of additional features</label>
+        <label class="col-sm-12" style="font-weight: bold;">Checklist of additional features</label>
         <div class="col-sm-12">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="features[]">Color display
+                    <input type="checkbox" name="features[]" value="Color display">Color display
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="features[]">Mic to listen
+                    <input type="checkbox" name="features[]" value="Mic to listen">Mic to listen
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="features[]">Pan, til, zoom, rotation
+                    <input type="checkbox" name="features[]" value="Pan, til, zoom, rotation">Pan, til, zoom, rotation
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="features[]">Night vision
+                    <input type="checkbox" name="features[]" value="Night vision">Night vision
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="features[]">Motion detector
+                    <input type="checkbox" name="features[]" value="Motion detector">Motion detector
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="features[]">Speaker to speak
+                    <input type="checkbox" name="features[]" value="Speaker to speak">Speaker to speak
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="features[]">Wireless
+                    <input type="checkbox" name="features[]" value="Wireless">Wireless
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="features[]">Hidden
+                    <input type="checkbox" name="features[]" value="Hidden">Hidden
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="features[]">License plate recognition
+                    <input type="checkbox" name="features[]" value="License plate recognition">License plate recognition
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="features[]">Dummy NON working - No internet connection required
+                    <input type="checkbox" name="features[]" value="Dummy NON working - No internet connection required">Dummy NON working - No internet connection required
                 </label>
             </div>
         </div>
@@ -299,7 +299,7 @@
     <div class="form-group">
         <label class="col-sm-12" for="uploadFile">Pics of location</label>
         <div class="col-sm-12">
-            <input id="fileupload" type="file" name="files[]" data-url="server/" multiple>
+            <input id="fileupload" type="file" name="files[]" multiple>
             <ul id="fileList"></ul>
             <div id="fileListHidden" style="display:none"></div>
         </div>

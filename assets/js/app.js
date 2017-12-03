@@ -4,6 +4,7 @@ jQuery(function ($) {
             attachmentsCount = 0;
 
         $('#fileupload').fileupload({
+            url: 'uploads/',
             dataType: 'json',
             autoUpload: false,
             acceptedFileType: /(\.|\/)(gif|jpe?g|png)$/i,
@@ -21,7 +22,8 @@ jQuery(function ($) {
                         var jqXHR = data.submit()
                         jqXHR.done(function( data, textStatus, jqXHR ) {
                             $.each(data.files, function (index, file) {
-                                $('<input type="hidden" name="file_'+ attachmentsCount++ +'">').val(file.url).appendTo('#fileListHidden');
+                                $('<input type="hidden" name="pics[]">').val(file.name).appendTo('#fileListHidden');
+                                //$('<input type="hidden" name="file_'+ attachmentsCount++ +'">').val(file.name).appendTo('#fileListHidden');
                             });
                         });
                     }
@@ -43,7 +45,7 @@ jQuery(function ($) {
             }
         });
 
-        //Quote Form
+//Quote Form
 $(document).on('submit', '#cctv-form', function(event) {
     
     event.preventDefault();
@@ -80,9 +82,13 @@ $(document).on('submit', '#cctv-form', function(event) {
                 if (type == 'json') {
                 if(data.status) {
                     $self.trigger('reset');
+                    $('#calculatedAmount').html('0');
+                    $('#fileList').empty();
                 }
                 } else {
-                $self.trigger('reset');
+                    $self.trigger('reset');
+                    $('#calculatedAmount').html('0');
+                    $('#fileList').empty();
                 }
 
                 $self.find('.sppb-btn > .fa-spin').removeClass('fa-spinner fa-spin');

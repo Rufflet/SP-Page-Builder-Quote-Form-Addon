@@ -28,7 +28,7 @@ class SppagebuilderAddonQuote_form extends SppagebuilderAddons{
 		$output .= '<form role="form" id="cctv-form" class="form-horizontal" enctype="multipart/form-data">';
 		$output .= $fieldset;
 
-		$output .= '<input type="hidden" name="recipient" value="'. $recipient_email .'">';
+		$output .= '<input type="hidden" name="recipient" value="'. base64_encode($recipient_email) .'">';
 		$output .= '<input type="hidden" name="from_email" value="'. base64_encode($from_email) .'">';
 		$output .= '<input type="hidden" name="from_name" value="'. base64_encode($from_name) .'">';
 
@@ -48,6 +48,12 @@ class SppagebuilderAddonQuote_form extends SppagebuilderAddons{
 
 		//inputs
 		$inputs = $input->get('data', array(), 'ARRAY');
+		
+		//features
+		$features = [];
+
+		//features
+		$pics = [];
 
 		foreach ($inputs as $input) {
 
@@ -135,12 +141,12 @@ class SppagebuilderAddonQuote_form extends SppagebuilderAddons{
 				$dateandtime 				= $input['value'];
 			}
 
-			if( $input['name'] == 'features' ) {
-				$features 					= $input['value'];
+			if( $input['name'] == 'features[]' ) {
+				$features[]					= $input['value'];
 			}
 
-			if( $input['name'] == 'files' ) {
-				$files 						= $input['value'];
+			if( $input['name'] == 'pics[]' ) {
+				$pics[]						= $input['value'];
 			}
 
 			if( $input['name'] == 'additionalinfo' ) {
@@ -148,18 +154,132 @@ class SppagebuilderAddonQuote_form extends SppagebuilderAddons{
 			}
 
 			if( $input['name'] == 'recipient' ) {
-				//$recipient 			= base64_decode($input['value']);
-				$recipient 			= $input['value'];
+				$recipient 					= base64_decode($input['value']);
 			}
 
 			if( $input['name'] == 'from_email' ) {
-				$from_email 			= base64_decode($input['value']);
+				$from_email 				= base64_decode($input['value']);
 			}
 
 			if( $input['name'] == 'from_name' ) {
-				$from_name 			= base64_decode($input['value']);
+				$from_name 					= base64_decode($input['value']);
 			}
 		}
+
+		$message .= 'Form details:' . PHP_EOL;
+		$message .= 'Name: ' . $firstname;
+		$message .= (empty($lastname)) ? PHP_EOL : ' ' . $lastname . PHP_EOL;
+		
+		if (!empty($companyfield)) {
+			$message .= 'Company: ' . $companyfield . PHP_EOL;
+		}
+
+		//$message .= 'Phone number: ' . $phonenum . ' ext: ' . $phoneext . PHP_EOL;
+		if (!empty($phonenum)) {
+			$message .= 'Phone number: ' . $phonenum;
+		}
+		$message .= (empty($phoneext)) ? PHP_EOL : ' ext: ' . $phoneext . PHP_EOL;
+		
+		$message .= 'Email Address: ' . $emailfield . PHP_EOL;
+
+		//$message .= 'Preferred method of contact: ' . $preferredcontact . PHP_EOL;
+		if (!empty($preferredcontact)) {
+			$message .= 'Preferred method of contact: ' . $preferredcontact . PHP_EOL;
+		}
+		
+		//Location Block
+		//$message .= 'Type of location: ' . $locationtype . PHP_EOL;
+		if (!empty($locationtype)) {
+			$message .= 'Type of location: ' . $locationtype . PHP_EOL;
+		}
+		//$message .= 'Location material: ' . $locationmaterial . PHP_EOL;
+		if (!empty($locationmaterial)) {
+			$message .= 'Location material: ' . $locationmaterial . PHP_EOL;
+		}
+		//$message .= 'Indoor, outdoor or both: ' . $inoutdoor . PHP_EOL;
+		if (!empty($inoutdoor)) {
+			$message .= 'Indoor, outdoor or both: ' . $inoutdoor . PHP_EOL;
+		}
+
+		//Cams Block
+		//$message .= 'How many cameras: ' . $cameras . PHP_EOL;
+		if (!empty($cameras)) {
+			$message .= 'How many cameras: ' . $cameras . PHP_EOL;
+		}
+		//$message .= 'Quality of cameras: ' . $camerasquality . PHP_EOL;
+		if (!empty($camerasquality)) {
+			$message .= 'Quality of cameras: ' . $camerasquality . PHP_EOL;
+		}
+		//$message .= 'How many days of recording: ' . $daysofrec . PHP_EOL;
+		if (!empty($camerasdaysofrecquality)) {
+			$message .= 'How many days of recording: ' . $daysofrec . PHP_EOL;
+		}
+
+		//Monitor Block
+		//$message .= 'Monitor needed to view cameras? ' . $monitorneeded . PHP_EOL;
+		if (!empty($monitorneeded)) {
+			$message .= 'Monitor needed to view cameras? ' . $monitorneeded . PHP_EOL;
+		}
+		//$message .= 'Monitor Size: ' . $monitorsize . PHP_EOL;
+		if (!empty($monitorsize)) {
+			$message .= 'Monitor Size: ' . $monitorsize . PHP_EOL;
+		}
+		//$message .= 'Mounted on: ' . $mountedon . PHP_EOL;
+		if (!empty($mountedon)) {
+			$message .= 'Mounted on: ' . $mountedon . PHP_EOL;
+		}
+
+		//Internet Connection Block
+		//$message .= 'Do you have internet connection? ' . $internetconnection . PHP_EOL;
+		if (!empty($internetconnection)) {
+			$message .= 'Do you have internet connection? ' . $internetconnection . PHP_EOL;
+		}
+		//$message .= 'What type of internet? ' . $internetconnectiontype . PHP_EOL;
+		if (!empty($internetconnectiontype)) {
+			$message .= 'What type of internet? ' . $internetconnectiontype . PHP_EOL;
+		}
+		//$message .= 'Do you plan on having Internet connection by install date? ' . $planinternetconnection . PHP_EOL;
+		if (!empty($planinternetconnection)) {
+			$message .= 'Do you plan on having Internet connection by install date? ' . $planinternetconnection . PHP_EOL;
+		}
+		
+		//Dates Block
+		//$message .= 'Installation date: ' . $installationdate . PHP_EOL;
+		if (!empty($installationdate)) {
+			$message .= 'Installation date: ' . $installationdate . PHP_EOL;
+		}
+		//$message .= 'Please choose date and time: ' . $dateandtime . PHP_EOL;
+		if (!empty($planinternetcodateandtimennection)) {
+			$message .= 'Please choose date and time: ' . $dateandtime . PHP_EOL;
+		}
+		
+		//Features Block
+		$featuresCounter = count($features);
+		if (!empty($featuresCounter)) {
+			$message .= 'Checklist of additional features: ' . PHP_EOL;
+			for($i=0; $i < $featuresCounter; $i++)
+			{
+				$message .= ' - ' . $features[$i] . PHP_EOL;
+			}
+		}
+		
+		//pics Block
+		$picsCounter = count($pics);
+		if (!empty($picsCounter)) {
+			$message .= 'Pics of location: ' . PHP_EOL;
+			for($i=0; $i < $picsCounter; $i++)
+			{
+				$message .= ' - ' . $pics[$i] . PHP_EOL;
+			}
+		}
+
+		//Additional field(s) block
+		//$message .= 'Any Additional Information: ' . PHP_EOL . $additionalinfo . PHP_EOL;
+		if (!empty($additionalinfo)) {
+			$message .= 'Any Additional Information: ' . PHP_EOL . $additionalinfo . PHP_EOL;
+		}
+
+		$message = nl2br( $message );
 
 		$output = array();
 		$output['status'] = false;
@@ -173,16 +293,38 @@ class SppagebuilderAddonQuote_form extends SppagebuilderAddons{
 		
 		$mail->setSender($sender);
 		$mail->addRecipient($recipient);
-		$mail->setSubject('Quote form');
+		$mail->setSubject('Quote form'); //TODO move to form params
 		$mail->isHTML(true);
 		$mail->Encoding = 'base64';
-		$mail->setBody($additionalinfo);
+		$mail->setBody($message);
+
+		//Attachments
+		if (!empty($picsCounter)) {
+			for($i=0; $i < $picsCounter; $i++)
+			{
+				$mail->addAttachment(JURI::base(true) . 'uploads/files/' .$pics[$i]);
+			}
+		}
 
 		if ($mail->Send()) {
 			$output['status'] = true;
 			$output['content'] = '<span class="sppb-text-success">'. JText::_('COM_SPPAGEBUILDER_ADDON_AJAX_CONTACT_SUCCESS') .'</span>';
+			//Delete Attachments
+			if (!empty($picsCounter)) {
+				for($i=0; $i < $picsCounter; $i++)
+				{
+					JFile::delete(JURI::base(true) . 'uploads/files/' .$pics[$i]);
+				}
+			}
 		} else {
 			$output['content'] = '<span class="sppb-text-danger">'. JText::_('COM_SPPAGEBUILDER_ADDON_AJAX_CONTACT_FAILED') .'</span>';
+			//Delete Attachments
+			if (!empty($picsCounter)) {
+				for($i=0; $i < $picsCounter; $i++)
+				{
+					JFile::delete(JURI::base(true) . 'uploads/files/' .$pics[$i]);
+				}
+			}
 		}
 
 		return json_encode($output);
