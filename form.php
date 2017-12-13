@@ -49,9 +49,9 @@
         <div class="col-sm-12">
             <select class="form-control" name="locationtype">
                 <option value="0">Choose one</option>
-                <option value="1">Residential/Home</option>
-                <option value="2">Commercial/Business</option>
-                <option value="3">Government</option>
+                <option>Residential/Home</option>
+                <option>Commercial/Business</option>
+                <option>Government</option>
             </select>
         </div>
     </div>
@@ -85,30 +85,40 @@
         </div>
     </div>
 
-
+    <div class="form-group">
+        <label class="col-sm-12">Type of camera</label>
+        <div class="col-sm-12">
+            <select class="form-control" name="cameratype" >
+                <option value="0">Choose one</option>
+                <option>720p Bullet</option>
+                <option>1080p Bullet</option>
+                <option>Fully Covered Dome 1080p</option>
+                <option>Half Covered Dome 720p</option>
+                <option>Wireless 720p Bullet</option>
+                <option>Wireless 1080p Bullet</option>
+                <option>PTZ</option>
+                <option>Wireless PTZ</option>
+                <option>Hidden</option>
+                <option>License Plate</option>
+                <option>Dummy Camera Bullet/Dome</option>
+            </select>
+        </div>
+    </div>
+    
     <div class="form-group">
         <label class="col-sm-12">How many cameras</label>
         <div class="col-sm-12">
             <select class="form-control" name="cameras" >
                 <option value="0">Choose one</option>
-                <option value="1">1-4</option>
-                <option value="2">5-8</option>
-                <option value="3">9-12</option>
-                <option value="4">13-16</option>
-                <option value="5">16-31</option>
-                <option value="6">32+</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="col-sm-12">Quality of cameras</label>
-        <div class="col-sm-12">
-            <select class="form-control" name="camerasquality" >
-                <option value="0">Choose one</option>
-                <option value="1">Good</option>
-                <option value="2">Better</option>
-                <option value="3">Best</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>8+</option>
             </select>
         </div>
     </div>
@@ -118,11 +128,11 @@
         <div class="col-sm-12">
             <select class="form-control" name="daysofrec" >
                 <option value="0">Choose one</option>
-                <option value="1">1 day</option>
-                <option value="2">1 week</option>
-                <option value="3">2 weeks</option>
-                <option value="4">1 month</option>
-                <option value="5">More than a month</option>
+                <option>1 day</option>
+                <option>1 week</option>
+                <option>2 weeks</option>
+                <option>1 month</option>
+                <option>More than a month</option>
             </select>
         </div>
     </div>
@@ -145,11 +155,10 @@
             <div class="col-sm-12">
                 <select class="form-control" name="monitorsize" >
                     <option value="0">Choose one</option>
-                    <option value="1">Small portable 7 inch</option>
-                    <option value="2">19 inch</option>
-                    <option value="3">32 inch</option>
-                    <option value="4">42 inch</option>
-                    <option value="5">Larger than 42</option>
+                    <option>23 inch</option>
+                    <option>32 inch</option>
+                    <option>42 inch</option>
+                    <option>Larger than 42</option>
                 </select>
             </div>
         </div>
@@ -159,9 +168,9 @@
             <div class="col-sm-12">
                 <select class="form-control" name="mountedon" >
                     <option value="0">Choose one</option>
-                    <option value="1">wall</option>
-                    <option value="2">ceiling</option>
-                    <option value="3">stand</option>
+                    <option>Wall</option>
+                    <option>Ceiling</option>
+                    <option>Stand</option>
                 </select>
             </div>
         </div>
@@ -215,10 +224,10 @@
         <div class="col-sm-12">
             <select class="form-control" name="installationdate">
                 <option value="0">Choose one</option>
-                <option value="1">Within 72 hours (Extra fees apply)</option>
-                <option value="2">within 7 business days</option>
-                <option value="3">within 2 weeks</option>
-                <option value="4">No rush</option>
+                <option>Within 72 hours (Extra fees apply)</option>
+                <option>within 7 business days</option>
+                <option>within 2 weeks</option>
+                <option>No rush</option>
             </select>
         </div>
     </div>
@@ -245,52 +254,12 @@
         <div class="col-sm-12">
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="features[]" value="Color display">Color display
+                    <input type="checkbox" name="features[]" value="mic">Mic to listen
                 </label>
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox" name="features[]" value="Mic to listen">Mic to listen
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="features[]" value="Pan, til, zoom, rotation">Pan, til, zoom, rotation
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="features[]" value="Night vision">Night vision
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="features[]" value="Motion detector">Motion detector
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="features[]" value="Speaker to speak">Speaker to speak
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="features[]" value="Wireless">Wireless
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="features[]" value="Hidden">Hidden
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="features[]" value="License plate recognition">License plate recognition
-                </label>
-            </div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="features[]" value="Dummy NON working - No internet connection required">Dummy NON working - No internet connection required
+                    <input type="checkbox" name="features[]" value="speaker">Speaker to speak
                 </label>
             </div>
         </div>
