@@ -81,7 +81,7 @@ $(document).on('submit', '#cctv-form', function(event) {
 
             $self.find('.sppb-btn > .fa-spin').removeClass('fa-spinner fa-spin');
             $self.next('.sppb-quote-form-status').html(content).fadeIn().delay(4000).fadeOut(500);
-            //setTimeout(window.location.replace("/contacts"), 2000);
+            setTimeout(function(){ window.location.replace("/submitted") }, 1000);
         }
     });
 

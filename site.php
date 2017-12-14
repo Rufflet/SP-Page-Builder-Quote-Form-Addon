@@ -302,7 +302,8 @@ class SppagebuilderAddonQuote_form extends SppagebuilderAddons{
 		
 		$mail->setSender($sender);
 		$mail->addRecipient($recipient);
-		$mail->setSubject('Quote form'); //TODO move to form params
+		$requid = date("n/j/y:B");
+		$mail->setSubject('Quote form'. ' #' . $requid);
 		$mail->isHTML(true);
 		$mail->Encoding = 'base64';
 		$mail->setBody($message);
