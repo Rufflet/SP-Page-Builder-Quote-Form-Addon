@@ -69,11 +69,13 @@ $(document).on('submit', '#cctv-form', function(event) {
             if(data.status) {
                 $self.trigger('reset');
                 $('#calculatedAmount').html('0');
+                amountObj = {};
                 $('#fileList').empty();
             }
             } else {
                 $self.trigger('reset');
                 $('#calculatedAmount').html('0');
+                amountObj = {};
                 $('#fileList').empty();
             }
 
@@ -107,21 +109,16 @@ $(document).on('submit', '#cctv-form', function(event) {
     function updateAmount() {
     
         var amount = 0;
-        console.log('=======================');
+        //console.log('=======================');
         Object.keys(amountObj).forEach(function(key) {
-            console.log(key, amountObj[key]);
+            //console.log(key, amountObj[key]);
             amount+=amountObj[key];
         });
-        console.log('=======================');
+        //console.log('=======================');
         
         $("#calculatedAmount").html(amount);
+        $('input[name=totalamount]').val(amount);
     };
-
-    /* Not currently used   
-    $("select[name=locationtype]").on("change", function() {
-        amountObj[this.name] = +this.value;
-        updateAmount();
-    });*/
 
     $("select[name=locationmaterial]").on("change", function() {
         switch ($( this ).prop('selectedIndex')) {

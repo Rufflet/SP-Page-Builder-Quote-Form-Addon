@@ -280,5 +280,5 @@
             <textarea class="form-control" name="additionalinfo"></textarea>
         </div>
     </div>
-
+    <input type="hidden" name="totalamount">
     <button type="submit" class="sppb-btn sppb-btn-default sppb-btn-square"><i class="fa"></i> Submit <i class="fa fa-send-o"></i></button>

@@ -97,12 +97,12 @@ class SppagebuilderAddonQuote_form extends SppagebuilderAddons{
 				$inoutdoor 					= $input['value'];
 			}
 
-			if( $input['name'] == 'cameras' ) {
-				$cameras 					= $input['value'];
+			if( $input['name'] == 'cameratype' ) {
+				$cameratype 				= $input['value'];
 			}
 
-			if( $input['name'] == 'camerasquality' ) {
-				$camerasquality 			= $input['value'];
+			if( $input['name'] == 'cameras' ) {
+				$cameras 					= $input['value'];
 			}
 
 			if( $input['name'] == 'daysofrec' ) {
@@ -164,6 +164,10 @@ class SppagebuilderAddonQuote_form extends SppagebuilderAddons{
 			if( $input['name'] == 'from_name' ) {
 				$from_name 					= base64_decode($input['value']);
 			}
+
+			if( $input['name'] == 'totalamount' ) {
+				$totalamount				= $input['value'];
+			}
 		}
 
 		$message .= 'Form details:' . PHP_EOL;
@@ -202,13 +206,13 @@ class SppagebuilderAddonQuote_form extends SppagebuilderAddons{
 		}
 
 		//Cams Block
+		//$message .= 'Type of camera: ' . $cameratype . PHP_EOL;
+		if (!empty($cameratype)) {
+			$message .= 'Type of camera: ' . $cameratype . PHP_EOL;
+		}
 		//$message .= 'How many cameras: ' . $cameras . PHP_EOL;
 		if (!empty($cameras)) {
 			$message .= 'How many cameras: ' . $cameras . PHP_EOL;
-		}
-		//$message .= 'Quality of cameras: ' . $camerasquality . PHP_EOL;
-		if (!empty($camerasquality)) {
-			$message .= 'Quality of cameras: ' . $camerasquality . PHP_EOL;
 		}
 		//$message .= 'How many days of recording: ' . $daysofrec . PHP_EOL;
 		if (!empty($camerasdaysofrecquality)) {
@@ -277,6 +281,11 @@ class SppagebuilderAddonQuote_form extends SppagebuilderAddons{
 		//$message .= 'Any Additional Information: ' . PHP_EOL . $additionalinfo . PHP_EOL;
 		if (!empty($additionalinfo)) {
 			$message .= 'Any Additional Information: ' . PHP_EOL . $additionalinfo . PHP_EOL;
+		}
+
+		//Total Amount
+		if (!empty($totalamount)) {
+			$message .= 'Total amount (calculated): ' . $totalamount . PHP_EOL;
 		}
 
 		$message = nl2br( $message );
